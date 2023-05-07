@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MovieComponent from "../components/MovieComponent";
+import styled from "styled-components";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -13,9 +17,9 @@ const HomePage = () => {
       const url = `${baseUrl}movie/popular?api_key=${apiKey}&language=en-US&page=${currentPage}`;
 
       const response = await axios.get(url);
+      console.log(response.data.results);
       setMovies(response.data.results);
       setTotalPages(response.data.total_pages);
-      console.log(response.data.results);
     };
     fetchMovies();
   }, [currentPage]);
@@ -33,20 +37,64 @@ const HomePage = () => {
   };
 
   return (
-    <div>
-      <ul>
+    <DivWrapper>
+      <div className="movieContainer">
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
+          // <li key={movie.id}>{movie.title}</li>
+          <MovieComponent
+            title={movie.title}
+            id={movie.id}
+            vote={movie.vote_average}
+            poster={movie.poster_path}
+            description={movie.overview}
+            release={movie.release_date}
+          />
         ))}
-      </ul>
-      <button onClick={handlePrevPage} disabled={currentPage === 1}>
-        Previous Page
-      </button>
-      <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-        Next Page
-      </button>
-    </div>
+      </div>
+      <div className="buttonWrapper">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          <AiOutlineArrowLeft className="arrow" />
+        </button>
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          <AiOutlineArrowRight className="arrow" />
+        </button>
+      </div>
+    </DivWrapper>
   );
 };
 
+const DivWrapper = styled.div`
+  width: 80%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .movieContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .buttonWrapper {
+    display: flex;
+    gap: 50px;
+    padding: 30px 0;
+    button {
+      padding: 10px 15px;
+      background: #ffa502;
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      .arrow {
+        fill: #fff;
+        font-size: 25px;
+      }
+      &:hover {
+        background: #ff4757;
+      }
+    }
+  }
+`;
 export default HomePage;

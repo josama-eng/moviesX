@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AllMovies from "./pages/AllMovies";
+import GenresPage from "./pages/GenresPage";
+import MovieDetails from "./pages/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
       {
         path: "/all-movies",
         element: <AllMovies />,
+      },
+      {
+        path: "/genres/:id",
+        element: <GenresPage />,
+      },
+      {
+        path: "/movie-details/:id",
+        element: <MovieDetails />,
       },
     ],
   },

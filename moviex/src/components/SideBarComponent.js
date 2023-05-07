@@ -24,6 +24,11 @@ const SideBarComponent = () => {
     };
     fetchGenres();
   }, []);
+
+  const toggleGenres = () => {
+    setShowGenres(!showGenres);
+  };
+
   return (
     <Wrapper>
       <ul>
@@ -43,7 +48,18 @@ const SideBarComponent = () => {
           <Link>Series</Link>
         </li>
         <li>
-          <button>Genres</button>
+          <button onClick={toggleGenres}>Genres</button>
+          {showGenres && (
+            <div>
+              <ul>
+                {genres.map((genre, index) => (
+                  <li key={index}>
+                    <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </li>
       </ul>
     </Wrapper>
@@ -53,14 +69,28 @@ const SideBarComponent = () => {
 const Wrapper = styled.div`
   width: 20%;
   background: #1a171e;
-  height: 100vh;
+  min-height: 100vh;
   color: #dfe4ea;
+  position: fixed;
+  top: 0;
+  bottom: 0;
   li {
     font-size: 20px;
     padding: 20px;
     transition: all 0.5s ease;
     &:hover {
       color: #ff4757;
+    }
+  }
+  button {
+    background: #ff4757;
+    font-size: 20px;
+    color: #dfe4ea;
+    padding: 10px 15px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    &:hover {
+      background: #ffa502;
     }
   }
 `;

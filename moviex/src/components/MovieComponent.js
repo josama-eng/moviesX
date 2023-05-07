@@ -1,7 +1,110 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
+import { AiOutlineStar } from "react-icons/ai";
 
-const MovieComponent = () => {
-  return <div>MovieComponent</div>;
+const MovieComponent = ({ title, id, vote, poster, description, release }) => {
+  return (
+    <DivWapper>
+      <div className="imgContainer">
+        <img src={"https://image.tmdb.org/t/p/w500/" + poster} alt="" />
+      </div>
+      <p>{release}</p>
+      <h2>{title}</h2>
+      <div className="vote">
+        <div className="content">
+          <h3>
+            <AiOutlineStar className="star" />
+          </h3>
+          <p>{vote}</p>
+        </div>
+        {/* {vote} */}
+      </div>
+      <Link to={`/movie-details/${id}`} className="detailsLink">
+        Watch Now
+      </Link>
+    </DivWapper>
+  );
 };
+
+const DivWapper = styled.div`
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 20px;
+  .imgContainer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    background-color: black;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+      z-index: -1;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+  }
+
+  h2 {
+    position: absolute;
+    bottom: 40%;
+    left: 30px;
+    font-size: 25px;
+  }
+  .vote {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: #000;
+    width: 60px;
+    height: 35px;
+    border-radius: 30px;
+    font-size: 15px;
+    text-align: center;
+    .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      h3 {
+        padding-right: 25px;
+        .star {
+          fill: #ffa502;
+        }
+      }
+      p {
+        margin-top: 2px;
+      }
+    }
+  }
+  p {
+    position: absolute;
+    bottom: 30%;
+    left: 30px;
+  }
+  .detailsLink {
+    background-color: #ff4757;
+    position: absolute;
+    bottom: 10%;
+    left: 30px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: all 0.5s ease;
+    &:hover {
+      background: #ffa502;
+    }
+  }
+`;
 
 export default MovieComponent;
