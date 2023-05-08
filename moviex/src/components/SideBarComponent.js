@@ -2,28 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { allGenres } from "../services/movie.service";
 
 const SideBarComponent = () => {
   const [showGenres, setShowGenres] = useState(false);
   const [genres, setGenres] = useState([]);
-  const apiKey = process.env.REACT_APP_API_KEY;
-  const baseUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    const fetchGenres = async () => {
-      try {
-        const response = await axios.get(
-          `${baseUrl}genre/movie/list?api_key=${apiKey}`
-        );
-        console.log(response.data.genres);
+    allGenres()
+      .then((response) => {
         setGenres(response.data.genres);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchGenres();
-  }, []);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setGenres]);
 
   const toggleGenres = () => {
     setShowGenres(!showGenres);
@@ -33,10 +26,16 @@ const SideBarComponent = () => {
     <Wrapper>
       <ul>
         <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
           <Link to="/all-movies">All movies</Link>
         </li>
         <li>
           <Link>Upcoming</Link>
+        </li>
+        <li>
+          <Link>Popular</Link>
         </li>
         <li>
           <Link>Latest</Link>
@@ -74,12 +73,20 @@ const Wrapper = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
+  padding: 20px 0px;
+  @media screen and (max-width: 1000px) {
+    width: 30%;
+  }
   li {
     font-size: 20px;
-    padding: 20px;
+    padding: 20px 10px;
     transition: all 0.5s ease;
     &:hover {
       color: #ff4757;
+    }
+    @media screen and (max-width: 550px) {
+      font-size: 15px;
+      padding: 20px 5px;
     }
   }
   button {
@@ -89,6 +96,9 @@ const Wrapper = styled.div`
     padding: 10px 15px;
     transition: all 0.5s ease;
     cursor: pointer;
+    @media screen and (max-width: 550px) {
+      font-size: 15px;
+    }
     &:hover {
       background: #ffa502;
     }

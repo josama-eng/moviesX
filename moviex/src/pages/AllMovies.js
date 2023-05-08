@@ -17,7 +17,6 @@ const HomePage = () => {
       const url = `${baseUrl}movie/popular?api_key=${apiKey}&language=en-US&page=${currentPage}`;
 
       const response = await axios.get(url);
-      console.log(response.data.results);
       setMovies(response.data.results);
       setTotalPages(response.data.total_pages);
     };
@@ -70,6 +69,10 @@ const DivWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 30px 0;
+  @media screen and (max-width: 1000px) {
+    width: 70%;
+  }
   .movieContainer {
     display: flex;
     justify-content: center;

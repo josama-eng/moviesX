@@ -6,12 +6,17 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AllMovies from "./pages/AllMovies";
 import GenresPage from "./pages/GenresPage";
 import MovieDetails from "./pages/MovieDetails";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
       {
         path: "/all-movies",
         element: <AllMovies />,
