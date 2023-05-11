@@ -9,38 +9,63 @@ import ReactPlayer from "react-player";
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  const [videoUrl, setVideoUrl] = useState("");
-  const [cast, setCast] = useState([]);
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [cast, setCast] = useState(null);
   const [genres, setGenres] = useState([]);
+  // const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     movieDetails(id)
       .then((response) => {
         setMovie(response.data);
         setGenres(response.data.genres);
-        const video = response.data.videos.results[0];
-        if (video) {
-          setVideoUrl(`https://www.youtube.com/watch?v=${video.key}`);
-        }
       })
       .catch((err) => {
         console.log(err);
       });
   }, [id]);
-  console.log(genres);
 
-  useEffect(() => {
-    actors(id)
-      .then((response) => {
-        setCast(response.data.cast);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [id]);
+  const fetchVideos = async () => {
+    try {
+      const response = await movieDetails(id);
+      setVideoUrl(response.data.videos.results);
+    } catch (error) {
+      console.error("Error fetching data from API 1:", error);
+    }
+  };
+
+  const fetchCast = async () => {
+    try {
+      const response = await actors(id);
+      console.log(response.data);
+      setCast(response.data.cast);
+    } catch (error) {
+      console.error("Error fetching data from API 2:", error);
+    }
+  };
+
+  const handleVideosButton = () => {
+    fetchVideos();
+    setCast(null);
+  };
+
+  const handleCastButton = () => {
+    fetchCast();
+    setVideoUrl(null);
+  };
+
+  // const openPopup = () => {
+  //   fetchVideos();
+  //   setShowPopup(true);
+  // };
+
+  // const closePopup = () => {
+  //   setShowPopup(false);
+  //   console.log(showPopup);
+  // };
 
   return (
-    <DivWrapper>
+    <div className="movieDetailsWrapper">
       <div className="details">
         <div className="img">
           <img
@@ -51,6 +76,17 @@ const MovieDetails = () => {
         <div className="content">
           <h2>{movie.title}</h2>
           <p>{movie.overview}</p>
+          <div className="movieDetails">
+            <p>
+              <span>Original title: </span> {movie.original_title}
+            </p>
+            <p>
+              <span>Runtime: </span> {movie.runtime}min
+            </p>
+            <p>
+              <span>Release date: </span> {movie.release_date}
+            </p>
+          </div>
           <div className="genres">
             <h3>Genres: </h3>
             <div>
@@ -59,100 +95,49 @@ const MovieDetails = () => {
               })}
             </div>
           </div>
-          <div className="cast">
-            <h3>Cast: </h3>
-            <div>
-              {cast.map((actor, index) => {
-                return <h4 key={index}>{actor.name},</h4>;
-              })}
-            </div>
+          <div className="buttons">
+            <button onClick={handleVideosButton}>Videos</button>
+            <button onClick={handleCastButton}>Cast</button>
           </div>
         </div>
       </div>
-      <div className="video">
-        <ReactPlayer
-          url={videoUrl}
-          playing={true}
-          controls={true}
-          width="100%"
-          height="80vh"
-          onEnded={() => console.log("Video ended")}
-        />
+      <div className="castVideoContainer">
+        <div className="videoWrapperOverlay">
+          <div className="video-content">
+            {videoUrl?.map((video, index) => (
+              <ReactPlayer
+                url={`https://www.youtube.com/watch?v=${video.key}`}
+                // playing={true}
+                controls={true}
+                autoplay={false}
+                width="500px"
+                height="300px"
+                onEnded={() => console.log("Video ended")}
+                key={index}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="castWrapper">
+          <div className="cast">
+            {cast?.map((actor, index) => {
+              return (
+                <div key={index}>
+                  <img
+                    src={
+                      "https://image.tmdb.org/t/p/w500/" + actor?.profile_path
+                    }
+                    alt="profile"
+                  />
+                  <h4 key={index}>{actor.name}</h4>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </DivWrapper>
+    </div>
   );
 };
 
-const DivWrapper = styled.div`
-  width: 80%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  @media screen and (max-width: 1000px) {
-    width: 70%;
-    .img {
-      img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-
-  .details {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 20px;
-    padding-bottom: 20px;
-    @media screen and (max-width: 1000px) {
-      flex-wrap: wrap;
-    }
-    h2,
-    p {
-      padding: 20px 0;
-      text-align: center;
-    }
-    h2 {
-      color: #ffa502;
-    }
-    .genres {
-      width: 100%;
-      h3 {
-        color: #ffa502;
-        text-align: center;
-        padding: 20px 0;
-      }
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-    }
-    .cast {
-      width: 100%;
-      h3 {
-        color: #ffa502;
-        text-align: center;
-        padding: 20px 0;
-      }
-      div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-    }
-    /* align-items: center; */
-  }
-  .video {
-    width: 100%;
-  }
-`;
 export default MovieDetails;

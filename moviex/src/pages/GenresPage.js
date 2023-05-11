@@ -62,7 +62,7 @@ const GenresPage = () => {
 };
 
 const DivWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

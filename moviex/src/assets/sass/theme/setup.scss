@@ -1,0 +1,37 @@
+//colors
+$orange: #ffa502;
+
+//mixins
+@mixin flex(
+  $display,
+  $justify-content,
+  $align-items,
+  $flex-direction,
+  $gap,
+  $flex-wrap
+) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  gap: $gap;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin button {
+  background: $orange;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.5s ease-in-out;
+  color: #fff;
+  @media screen and (max-width: 1000px) {
+    top: 20px;
+  }
+  &:hover {
+    background: transparent;
+    color: $orange;
+  }
+}

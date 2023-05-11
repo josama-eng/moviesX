@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import "./assets/sass/navbar.scss";
+@import "./assets/sass/movieComponent.scss";
+@import "./assets/sass/movieDetails.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+li {
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background: #0d0d0f;
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-size: 18px;
+}

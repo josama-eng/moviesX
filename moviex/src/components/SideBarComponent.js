@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { allGenres } from "../services/movie.service";
+import { FaBars } from "react-icons/fa";
 
 const SideBarComponent = () => {
   const [showGenres, setShowGenres] = useState(false);
   const [genres, setGenres] = useState([]);
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     allGenres()
@@ -22,87 +23,57 @@ const SideBarComponent = () => {
     setShowGenres(!showGenres);
   };
 
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
-    <Wrapper>
-      <ul>
-        <li>
+    <nav className={`navbar ${showMenu ? "expanded" : ""}`}>
+      <div className="navbar-header">
+        <button className="navbar-toggle" onClick={toggleMenu}>
+          <FaBars />
+        </button>
+      </div>
+      <ul className={`navbar-items ${showMenu ? "show" : ""}`}>
+        <li className="navbar-item">
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link to="/all-movies">All movies</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link>Upcoming</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link>Popular</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link>Latest</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link>Top rated</Link>
         </li>
-        <li>
+        <li className="navbar-item">
           <Link>Series</Link>
         </li>
-        <li>
-          <button onClick={toggleGenres}>Genres</button>
+        <li className="navbar-item dropdown">
+          <button onClick={toggleGenres} className="dropdown-toggle">
+            Genres
+          </button>
           {showGenres && (
-            <div>
-              <ul>
-                {genres.map((genre, index) => (
-                  <li key={index}>
-                    <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="dropdown-menu">
+              {genres.map((genre, index) => (
+                <li key={index} className="dropdown-item">
+                  <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
+                </li>
+              ))}
+            </ul>
           )}
         </li>
       </ul>
-    </Wrapper>
+    </nav>
   );
 };
 
-const Wrapper = styled.div`
-  width: 20%;
-  background: #1a171e;
-  min-height: 100vh;
-  color: #dfe4ea;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  padding: 20px 0px;
-  @media screen and (max-width: 1000px) {
-    width: 30%;
-  }
-  li {
-    font-size: 20px;
-    padding: 20px 10px;
-    transition: all 0.5s ease;
-    &:hover {
-      color: #ff4757;
-    }
-    @media screen and (max-width: 550px) {
-      font-size: 15px;
-      padding: 20px 5px;
-    }
-  }
-  button {
-    background: #ff4757;
-    font-size: 20px;
-    color: #dfe4ea;
-    padding: 10px 15px;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    @media screen and (max-width: 550px) {
-      font-size: 15px;
-    }
-    &:hover {
-      background: #ffa502;
-    }
-  }
-`;
-
 export default SideBarComponent;
+// treba mi responsive nav bar koji u sebi sadrzi ul sa li itemima,kao i button koji na klik treba da dobije padajuci meni i u njemu je jos jedan ul sa li itemima. na ekranima manjim od 800px ul i button treba da nestanu i da se pojavi hamburger menu icon,klikom na nju treba da se pojavi crni div preko celog ekrana sa stavkama iz navbara

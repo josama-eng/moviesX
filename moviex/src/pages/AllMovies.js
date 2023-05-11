@@ -63,13 +63,13 @@ const HomePage = () => {
 };
 
 const DivWrapper = styled.div`
-  width: 80%;
+  width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  padding: 30px;
   @media screen and (max-width: 1000px) {
     width: 70%;
   }
