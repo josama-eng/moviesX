@@ -63,3 +63,18 @@ $btnSecondary: #1e272e;
     width: 100%;
   }
 }
+
+@mixin arrowBtn {
+  padding: 10px 15px;
+  background: $orange;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  .arrow {
+    fill: #fff;
+    font-size: 25px;
+  }
+  &:hover {
+    background: $rose;
+  }
+}

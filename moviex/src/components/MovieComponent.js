@@ -2,9 +2,17 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
-const MovieComponent = ({ title, id, vote, poster, description, release }) => {
+const MovieComponent = ({
+  title,
+  id,
+  vote,
+  poster,
+  description,
+  release,
+  key,
+}) => {
   return (
-    <section>
+    <section key={key}>
       <div className="imgContainer">
         <img src={"https://image.tmdb.org/t/p/w500/" + poster} alt="" />
       </div>
@@ -17,7 +25,6 @@ const MovieComponent = ({ title, id, vote, poster, description, release }) => {
           </h3>
           <p>{vote}</p>
         </div>
-        {/* {vote} */}
       </div>
       <Link to={`/movie-details/${id}`} className="detailsLink">
         See Details

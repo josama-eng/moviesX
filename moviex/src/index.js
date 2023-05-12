@@ -7,6 +7,7 @@ import AllMovies from "./pages/AllMovies";
 import GenresPage from "./pages/GenresPage";
 import MovieDetails from "./pages/MovieDetails";
 import HomePage from "./pages/HomePage";
+import PopularMoviesPage from "./pages/PopularMoviesPage";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/movie-details/:id",
         element: <MovieDetails />,
+      },
+      {
+        path: "/popular",
+        element: <PopularMoviesPage />,
       },
     ],
   },
