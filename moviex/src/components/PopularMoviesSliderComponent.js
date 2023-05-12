@@ -32,8 +32,8 @@ const PopularMoviesSliderComponent = () => {
       });
   }, [setPopularMovie]);
   return (
-    <div className="popular">
-      <h2>Popular</h2>
+    <div className="popularSlider">
+      <h2 className="title">Popular</h2>
       <Splide options={options} hasTrack={false}>
         <SplideTrack>
           {popularMovie.map((movie, index) => (

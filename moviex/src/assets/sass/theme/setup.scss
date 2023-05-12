@@ -1,5 +1,8 @@
 //colors
 $orange: #ffa502;
+$nav: #181b1c;
+$rose: #ff4757;
+$btnSecondary: #1e272e;
 
 //mixins
 @mixin flex(
@@ -33,5 +36,30 @@ $orange: #ffa502;
   &:hover {
     background: transparent;
     color: $orange;
+  }
+}
+
+@mixin links {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  border: none;
+  background: none;
+  font-weight: 400;
+  &::before {
+    margin-left: auto;
+  }
+  &::after,
+  &::before {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: $orange;
+    display: block;
+    transition: 0.5s;
+  }
+  &:hover::after,
+  &:hover::before {
+    width: 100%;
   }
 }

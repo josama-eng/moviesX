@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieComponent from "../components/MovieComponent";
-import styled from "styled-components";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
@@ -36,10 +35,9 @@ const HomePage = () => {
   };
 
   return (
-    <DivWrapper>
+    <div className="allMoviesWrapper">
       <div className="movieContainer">
         {movies.map((movie) => (
-          // <li key={movie.id}>{movie.title}</li>
           <MovieComponent
             title={movie.title}
             id={movie.id}
@@ -58,46 +56,8 @@ const HomePage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
-    </DivWrapper>
+    </div>
   );
 };
 
-const DivWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  @media screen and (max-width: 1000px) {
-    width: 70%;
-  }
-  .movieContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .buttonWrapper {
-    display: flex;
-    gap: 50px;
-    padding: 30px 0;
-    button {
-      padding: 10px 15px;
-      background: #ffa502;
-      border: none;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      .arrow {
-        fill: #fff;
-        font-size: 25px;
-      }
-      &:hover {
-        background: #ff4757;
-      }
-    }
-  }
-`;
 export default HomePage;

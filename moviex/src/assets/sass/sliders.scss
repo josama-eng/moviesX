@@ -1,0 +1,11 @@
+@import "./theme/setup.scss";
+
+.topRatedSlider,
+.popularSlider {
+  padding: 0 30px;
+  .title {
+    padding: 20px 0;
+    font-size: 32px;
+    color: $orange;
+  }
+}

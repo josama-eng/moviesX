@@ -1,0 +1,13 @@
+@import "./theme/setup.scss";
+
+.footer {
+  width: 100%;
+  background: $nav;
+  padding: 10px 0;
+  .footer-content {
+    p {
+      text-align: center;
+      padding: 20px 0;
+    }
+  }
+}

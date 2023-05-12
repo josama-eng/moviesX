@@ -3,27 +3,20 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.min.css";
-import SideBarComponent from "./components/SideBarComponent";
-import styled from "styled-components";
+import NavBarComponent from "./components/NavBarComponent";
+import FooterComponent from "./components/FooterComponent";
 
 axios.defaults.baseURL = "http://localhost:5050";
 
 function App() {
   return (
-    <Container>
+    <div>
       <ToastContainer />
-      <SideBarComponent />
+      <NavBarComponent />
       <Outlet />
-    </Container>
+      <FooterComponent />
+    </div>
   );
 }
-
-const Container = styled.div`
-  width: 100%;
-  /* min-height: 100vh;
-  display: flex;
-  /* align-items: center; */
-  /* justify-content: space-between; */ */
-`;
 
 export default App;

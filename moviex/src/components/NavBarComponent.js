@@ -29,10 +29,12 @@ const SideBarComponent = () => {
 
   return (
     <nav className={`navbar ${showMenu ? "expanded" : ""}`}>
-      <div className="navbar-header">
-        <button className="navbar-toggle" onClick={toggleMenu}>
-          <FaBars />
-        </button>
+      <div className="logo">
+        <h1>
+          <Link to="/">
+            Movie<span>X</span>
+          </Link>
+        </h1>
       </div>
       <ul className={`navbar-items ${showMenu ? "show" : ""}`}>
         <li className="navbar-item">
@@ -61,7 +63,7 @@ const SideBarComponent = () => {
             Genres
           </button>
           {showGenres && (
-            <ul className="dropdown-menu">
+            <ul className={`dropdown-menu ${showMenu ? "show" : ""}`}>
               {genres.map((genre, index) => (
                 <li key={index} className="dropdown-item">
                   <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
@@ -71,9 +73,13 @@ const SideBarComponent = () => {
           )}
         </li>
       </ul>
+      {/* <div className="navbar-header"> */}
+      <button className="navbar-toggle" onClick={toggleMenu}>
+        <FaBars />
+      </button>
+      {/* </div> */}
     </nav>
   );
 };
 
 export default SideBarComponent;
-// treba mi responsive nav bar koji u sebi sadrzi ul sa li itemima,kao i button koji na klik treba da dobije padajuci meni i u njemu je jos jedan ul sa li itemima. na ekranima manjim od 800px ul i button treba da nestanu i da se pojavi hamburger menu icon,klikom na nju treba da se pojavi crni div preko celog ekrana sa stavkama iz navbara

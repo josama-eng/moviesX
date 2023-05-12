@@ -6,38 +6,23 @@ import hero from "../assets/images/hero.jpg";
 
 const HomePage = () => {
   return (
-    <MainDiv>
+    <div className="homePageContainer">
       <div className="background">
-        <h1>MovieX</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          quisquam nam ullam excepturi non minus natus aliquid deleniti illum
-          iusto.
-        </p>
+        <div className="content">
+          <h1>Introducing the MovieX: Your Ultimate Film Companion!</h1>
+          <p>
+            Get up-to-date information on the latest releases, including
+            trailers, reviews, and ratings. Our app keeps you in the loop,
+            ensuring you never miss out on the hottest movies hitting the big
+            screen or streaming platforms. Stay informed and make informed
+            choices with ease.
+          </p>
+        </div>
       </div>
       <PopularMoviesSliderComponent />
       <TopRatedSliderComponent />
-    </MainDiv>
+    </div>
   );
 };
 
-const MainDiv = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 30px;
-  .background {
-    width: 100%;
-    height: 80vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-      url(${hero});
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-`;
 export default HomePage;

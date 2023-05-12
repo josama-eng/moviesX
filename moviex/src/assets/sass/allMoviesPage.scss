@@ -1,0 +1,37 @@
+@import "./theme/setup.scss";
+
+.allMoviesWrapper {
+  width: 100%;
+  min-height: 100vh;
+  @include flex(flex, center, center, column, 10px, wrap);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  @media screen and (max-width: 1000px) {
+    width: 70%;
+  }
+  .movieContainer {
+    @include flex(flex, center, center, row, 20px, wrap);
+  }
+  .buttonWrapper {
+    @include flex(flex, space-between, center, row, 50px, wrap);
+
+    padding: 30px 0;
+    button {
+      padding: 10px 15px;
+      background: $orange;
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s ease;
+      .arrow {
+        fill: #fff;
+        font-size: 25px;
+      }
+      &:hover {
+        background: $rose;
+      }
+    }
+  }
+}

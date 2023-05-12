@@ -36,7 +36,7 @@ const GenresPage = () => {
   };
 
   return (
-    <DivWrapper>
+    <div className="genresPageContainer">
       <div className="movieContainer">
         {movies.map((movie) => (
           <MovieComponent
@@ -57,44 +57,8 @@ const GenresPage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
-    </DivWrapper>
+    </div>
   );
 };
-
-const DivWrapper = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 0;
-  .movieContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  .buttonWrapper {
-    display: flex;
-    gap: 50px;
-    padding: 30px 0;
-    button {
-      padding: 10px 15px;
-      background: #ffa502;
-      border: none;
-      cursor: pointer;
-      transition: all 0.5s ease;
-      .arrow {
-        fill: #fff;
-        font-size: 25px;
-      }
-      &:hover {
-        background: #ff4757;
-      }
-    }
-  }
-`;
 
 export default GenresPage;

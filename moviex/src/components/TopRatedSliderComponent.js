@@ -39,8 +39,8 @@ const TopRatedSliderComponent = () => {
     },
   };
   return (
-    <TopRatedDiv>
-      <h2>Top rated</h2>
+    <div className="topRatedSlider">
+      <h2 className="title">Top rated</h2>
       <Splide options={options} hasTrack={false}>
         <SplideTrack>
           {topRatedMovies.map((topMovie, index) => (
@@ -57,7 +57,7 @@ const TopRatedSliderComponent = () => {
           ))}
         </SplideTrack>
       </Splide>
-    </TopRatedDiv>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import styled from "styled-components";
 import { AiOutlineStar } from "react-icons/ai";
 
 const MovieComponent = ({ title, id, vote, poster, description, release }) => {
