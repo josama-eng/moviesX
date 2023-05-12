@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import MovieComponent from "../components/MovieComponent";
-import { upcomingMovie } from "../services/movie.service";
+import { nowPlaying } from "../services/movie.service";
 
-const UpcomingMoviesPage = () => {
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+const LatestMoviesPage = () => {
+  const [nowPlayingMovies, setNowPlaying] = useState([]);
 
   useEffect(() => {
-    upcomingMovie()
+    nowPlaying()
       .then((response) => {
-        setUpcomingMovies(response.data.results);
+        console.log(response.data.results);
+        setNowPlaying(response.data.results);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [setUpcomingMovies]);
-
+  }, [setNowPlaying]);
   return (
-    <div className="upcomingMoviesPage">
-      <div className="upcomingMoviesContainer">
-        {upcomingMovies.map((movie, index) => (
+    <div className="nowPlayingMoviesPage">
+      <div className="nowPlayingMoviesContainer">
+        {nowPlayingMovies.map((movie, index) => (
           <MovieComponent
             title={movie.title}
             id={movie.id}
@@ -34,4 +34,4 @@ const UpcomingMoviesPage = () => {
   );
 };
 
-export default UpcomingMoviesPage;
+export default LatestMoviesPage;

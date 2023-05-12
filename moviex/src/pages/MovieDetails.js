@@ -54,16 +54,6 @@ const MovieDetails = () => {
     setVideoUrl(null);
   };
 
-  // const openPopup = () => {
-  //   fetchVideos();
-  //   setShowPopup(true);
-  // };
-
-  // const closePopup = () => {
-  //   setShowPopup(false);
-  //   console.log(showPopup);
-  // };
-
   return (
     <div className="movieDetailsWrapper">
       <div className="details">

@@ -50,10 +50,10 @@ const SideBarComponent = () => {
           <Link to="/popular">Popular</Link>
         </li>
         <li className="navbar-item">
-          <Link>Latest</Link>
+          <Link to="/now-playing">Now playing</Link>
         </li>
         <li className="navbar-item">
-          <Link>Top rated</Link>
+          <Link to="/top-rated">Top rated</Link>
         </li>
         <li className="navbar-item">
           <Link>Series</Link>
