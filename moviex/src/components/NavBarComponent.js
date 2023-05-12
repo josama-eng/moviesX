@@ -44,7 +44,7 @@ const SideBarComponent = () => {
           <Link to="/all-movies">All movies</Link>
         </li>
         <li className="navbar-item">
-          <Link>Upcoming</Link>
+          <Link to="/upcoming">Upcoming</Link>
         </li>
         <li className="navbar-item">
           <Link to="/popular">Popular</Link>

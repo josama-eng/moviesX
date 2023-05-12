@@ -27,3 +27,6 @@ export const topRated = (currentPage) =>
   axios.get(
     `${baseUrl}movie/top_rated?api_key=${apiKey}&language=en-US&page=${currentPage}`
   );
+
+export const upcomingMovie = () =>
+  axios.get(`${baseUrl}movie/upcoming?api_key=${apiKey}`);
