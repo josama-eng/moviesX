@@ -1,11 +1,13 @@
 @import "./theme/setup.scss";
 
-.popularMoviesPage {
+.popularMoviesPage,
+.popularSeriesPage {
   width: 100%;
   padding: 30px;
   min-height: 100vh;
   @include flex(flex, center, center, column, 10px, wrap);
-  .popularMovieContainer {
+  .popularMovieContainer,
+  .populaSeriesContainer {
     @include flex(flex, center, center, row, 20px, wrap);
   }
   .buttonWrapper {

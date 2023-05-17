@@ -11,6 +11,8 @@ import PopularMoviesPage from "./pages/PopularMoviesPage";
 import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
 import NowPlayingMoviesPage from "./pages/NowPlayingMoviesPage";
 import TopRatedPage from "./pages/TopRatedPage";
+import SeriesPage from "./pages/SeriesPage";
+import SeriesDetails from "./components/SeriesDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,7 @@ const router = createBrowserRouter([
         element: <GenresPage />,
       },
       {
-        path: "/movie-details/:id",
+        path: "/movies-details/:id",
         element: <MovieDetails />,
       },
       {
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
       {
         path: "/top-rated",
         element: <TopRatedPage />,
+      },
+      {
+        path: "/series",
+        element: <SeriesPage />,
+      },
+      {
+        path: "/series-details/:id",
+        element: <SeriesDetails />,
       },
     ],
   },

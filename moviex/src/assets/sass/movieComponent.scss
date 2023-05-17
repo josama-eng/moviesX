@@ -1,6 +1,7 @@
 @import "./theme/setup.scss";
 
-section {
+section,
+.seriesWrapper {
   position: relative;
   width: 300px;
   overflow: hidden;

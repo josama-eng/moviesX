@@ -57,8 +57,11 @@
     .dropdown {
       position: relative;
       .dropdown-toggle {
-        @include links;
         cursor: pointer;
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-size: 20px;
       }
       .dropdown-menu {
         background-color: $nav;
@@ -67,16 +70,17 @@
         padding: 10px 30px;
         position: absolute;
         top: 150%;
-        left: -67px;
+        left: -70px;
         display: flex;
         flex-direction: column;
+        height: 700px;
+        overflow-x: scroll;
         &.show {
           display: block;
           left: 36.5%;
           width: 200px;
           height: 300px;
           overflow-x: scroll;
-          // border: 2px solid #fff;
           @media screen and (max-width: 428px) {
             left: 27%;
           }

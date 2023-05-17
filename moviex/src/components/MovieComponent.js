@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 
 const MovieComponent = ({
@@ -26,7 +26,7 @@ const MovieComponent = ({
           <p>{vote}</p>
         </div>
       </div>
-      <Link to={`/movie-details/${id}`} className="detailsLink">
+      <Link to={`/movies-details/${id}`} className="detailsLink">
         See Details
       </Link>
     </section>

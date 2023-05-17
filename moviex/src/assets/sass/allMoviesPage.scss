@@ -4,14 +4,7 @@
   width: 100%;
   min-height: 100vh;
   @include flex(flex, center, center, column, 10px, wrap);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 30px;
-  @media screen and (max-width: 1000px) {
-    width: 70%;
-  }
   .movieContainer {
     @include flex(flex, center, center, row, 20px, wrap);
   }

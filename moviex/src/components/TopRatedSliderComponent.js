@@ -3,7 +3,6 @@ import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import MovieComponent from "../components/MovieComponent";
 import { topRated } from "../services/movie.service";
-import styled from "styled-components";
 
 const TopRatedSliderComponent = () => {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -29,7 +28,6 @@ const TopRatedSliderComponent = () => {
     autoWidth: true,
     autoHeight: true,
     autoplay: true,
-    type: "loop",
     interval: 3000,
     breakpoints: {
       1000: {
@@ -44,7 +42,7 @@ const TopRatedSliderComponent = () => {
       <Splide options={options} hasTrack={false}>
         <SplideTrack>
           {topRatedMovies.map((topMovie, index) => (
-            <SplideSlide>
+            <SplideSlide key={index}>
               <MovieComponent
                 title={topMovie.title}
                 id={topMovie.id}
@@ -60,12 +58,5 @@ const TopRatedSliderComponent = () => {
     </div>
   );
 };
-
-const TopRatedDiv = styled.div`
-  h2 {
-    text-align: center;
-    padding: 20px 0;
-  }
-`;
 
 export default TopRatedSliderComponent;

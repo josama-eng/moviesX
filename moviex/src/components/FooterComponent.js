@@ -4,7 +4,7 @@ const FooterComponent = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p>&copy; 2023 My MovieX. All rights reserved.</p>
+        <p>&copy; 2023 MovieX. All rights reserved.</p>
         <p>Created by joSam | Powered by React</p>
         <p>
           Disclaimer: This app provides movie information for entertainment

@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { movieDetails } from "../services/movie.service";
 import { actors } from "../services/movie.service";
 import ReactPlayer from "react-player";
@@ -12,7 +11,6 @@ const MovieDetails = () => {
   const [videoUrl, setVideoUrl] = useState(null);
   const [cast, setCast] = useState(null);
   const [genres, setGenres] = useState([]);
-  // const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     movieDetails(id)
@@ -37,7 +35,6 @@ const MovieDetails = () => {
   const fetchCast = async () => {
     try {
       const response = await actors(id);
-      console.log(response.data);
       setCast(response.data.cast);
     } catch (error) {
       console.error("Error fetching data from API 2:", error);
@@ -97,7 +94,6 @@ const MovieDetails = () => {
             {videoUrl?.map((video, index) => (
               <ReactPlayer
                 url={`https://www.youtube.com/watch?v=${video.key}`}
-                // playing={true}
                 controls={true}
                 autoplay={false}
                 width="500px"

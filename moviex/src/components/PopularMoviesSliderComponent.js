@@ -18,7 +18,6 @@ const PopularMoviesSliderComponent = () => {
     autoWidth: true,
     autoHeight: true,
     autoplay: true,
-    type: "loop",
     interval: 3000,
   };
 
@@ -31,13 +30,14 @@ const PopularMoviesSliderComponent = () => {
         console.log(err);
       });
   }, [setPopularMovie]);
+
   return (
     <div className="popularSlider">
       <h2 className="title">Popular</h2>
       <Splide options={options} hasTrack={false}>
         <SplideTrack>
           {popularMovie.map((movie, index) => (
-            <SplideSlide>
+            <SplideSlide key={index}>
               <MovieComponent
                 title={movie.title}
                 id={movie.id}

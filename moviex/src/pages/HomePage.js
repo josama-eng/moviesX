@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import PopularMoviesSliderComponent from "../components/PopularMoviesSliderComponent";
 import TopRatedSliderComponent from "../components/TopRatedSliderComponent";
-import styled from "styled-components";
-import hero from "../assets/images/hero.jpg";
+import InfoComponent from "../components/InfoComponent";
 
 const HomePage = () => {
   return (
@@ -21,6 +20,7 @@ const HomePage = () => {
       </div>
       <PopularMoviesSliderComponent />
       <TopRatedSliderComponent />
+      <InfoComponent />
     </div>
   );
 };

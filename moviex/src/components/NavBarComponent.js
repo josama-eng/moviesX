@@ -56,7 +56,7 @@ const SideBarComponent = () => {
           <Link to="/top-rated">Top rated</Link>
         </li>
         <li className="navbar-item">
-          <Link>Series</Link>
+          <Link to="/series">Series</Link>
         </li>
         <li className="navbar-item dropdown">
           <button onClick={toggleGenres} className="dropdown-toggle">
@@ -65,7 +65,11 @@ const SideBarComponent = () => {
           {showGenres && (
             <ul className={`dropdown-menu ${showMenu ? "show" : ""}`}>
               {genres.map((genre, index) => (
-                <li key={index} className="dropdown-item">
+                <li
+                  key={index}
+                  className="dropdown-item"
+                  onClick={toggleGenres}
+                >
                   <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
                 </li>
               ))}
@@ -73,11 +77,9 @@ const SideBarComponent = () => {
           )}
         </li>
       </ul>
-      {/* <div className="navbar-header"> */}
       <button className="navbar-toggle" onClick={toggleMenu}>
         <FaBars />
       </button>
-      {/* </div> */}
     </nav>
   );
 };

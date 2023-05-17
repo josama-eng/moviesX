@@ -1,6 +1,7 @@
 @import "./theme/setup.scss";
 
-.movieDetailsWrapper {
+.movieDetailsWrapper,
+.serieDetailsWrapper {
   width: 100%;
   min-height: 100%;
   @include flex(flex, space-between, center, column, 20px, wrap);
@@ -63,10 +64,12 @@
       }
     }
   }
-  .castVideoContainer {
+  .castVideoContainer,
+  .videosSeasonsContainer {
     width: 90%;
     @include flex(flex, space-between, center, row, 10px, wrap);
     margin: 0 auto;
+    padding: 20px 0;
     @media screen and (max-width: 1000px) {
       flex-direction: column;
     }
@@ -80,14 +83,17 @@
         @include flex(flex, center, center, row, 20px, wrap);
       }
     }
-    .castWrapper {
+    .castWrapper,
+    .seasonsWrapper {
       width: 100%;
 
-      .cast {
-        @include flex(flex, center, center, row, 20px, wrap);
+      .cast,
+      .seasons {
+        @include flex(flex, center, center, row, 40px, wrap);
         div {
           width: 300px;
           @include flex(flex, center, center, column, 20px, wrap);
+
           img {
             width: 50%;
             height: 50%;
