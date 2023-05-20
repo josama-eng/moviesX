@@ -31,6 +31,7 @@ const PopularMoviesPage = () => {
       setCurrentPage(currentPage - 1);
     }
   };
+
   return (
     <div className="popularMoviesPage">
       <div className="popularMovieContainer">

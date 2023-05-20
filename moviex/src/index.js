@@ -13,6 +13,7 @@ import NowPlayingMoviesPage from "./pages/NowPlayingMoviesPage";
 import TopRatedPage from "./pages/TopRatedPage";
 import SeriesPage from "./pages/SeriesPage";
 import SeriesDetails from "./components/SeriesDetails";
+import SearchPage from "./pages/SearchPage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "/series-details/:id",
         element: <SeriesDetails />,
+      },
+      {
+        path: "/search/:id",
+        element: <SearchPage />,
       },
     ],
   },

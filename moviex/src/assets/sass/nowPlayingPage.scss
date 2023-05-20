@@ -11,3 +11,11 @@
     @include flex(flex, center, center, row, 20px, wrap);
   }
 }
+
+.buttonWrapper {
+  @include flex(flex, center, center, row, 50px, wrap);
+  padding: 30px 0;
+  button {
+    @include arrowBtn;
+  }
+}

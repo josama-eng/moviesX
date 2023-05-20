@@ -16,6 +16,48 @@
       }
     }
   }
+  .input-search {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    transition: width 0.5s;
+    input[type="text"] {
+      height: 100%;
+      width: 3rem;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      transition: width 0.5s;
+    }
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 0.5rem;
+      transform: translateY(-50%);
+      font-size: 30px;
+      color: $orange;
+      transition: all 0.5s;
+    }
+    &.expanded {
+      width: 20rem;
+
+      input[type="text"] {
+        width: 100%;
+        border-bottom: 2px solid $orange;
+      }
+      .search-icon {
+        right: calc(100% - 10px);
+        font-size: 1rem;
+        color: #fff;
+      }
+    }
+  }
+  .searchBtn {
+    @include button;
+  }
   .navbar-toggle {
     display: none;
     background: none;

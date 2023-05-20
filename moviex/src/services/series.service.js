@@ -13,4 +13,7 @@ export const seriesDetais = (id) =>
 export const seriesVideos = (id) =>
   axios.get(`${baseUrl}/tv/${id}/videos?api_key=${apiKey}&language=en-US`);
 
-// `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchTerm}`
+export const searchMedia = (payload) =>
+  axios.get(
+    `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${payload}`
+  );

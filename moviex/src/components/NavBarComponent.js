@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { allGenres } from "../services/movie.service";
 import { FaBars } from "react-icons/fa";
+import SearchComponent from "./SearchComponent";
 
 const SideBarComponent = () => {
   const [showGenres, setShowGenres] = useState(false);
@@ -36,6 +37,7 @@ const SideBarComponent = () => {
           </Link>
         </h1>
       </div>
+
       <ul className={`navbar-items ${showMenu ? "show" : ""}`}>
         <li className="navbar-item">
           <Link to="/">Home</Link>
@@ -77,6 +79,7 @@ const SideBarComponent = () => {
           )}
         </li>
       </ul>
+      <SearchComponent />
       <button className="navbar-toggle" onClick={toggleMenu}>
         <FaBars />
       </button>

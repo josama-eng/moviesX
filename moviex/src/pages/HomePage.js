@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import PopularMoviesSliderComponent from "../components/PopularMoviesSliderComponent";
 import TopRatedSliderComponent from "../components/TopRatedSliderComponent";
 import InfoComponent from "../components/InfoComponent";

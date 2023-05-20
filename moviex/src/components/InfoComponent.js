@@ -1,5 +1,3 @@
-import hero3 from "../assets/images/hero3.jpg";
-
 const InfoComponent = () => {
   return (
     <div className="infoWrapper">
