@@ -3,6 +3,7 @@ import MovieComponent from "../components/MovieComponent";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { popularMovies } from "../services/movie.service";
+import ArrowComponent from "../components/ArrowComponent";
 
 const PopularMoviesPage = () => {
   const [popularMoviesPage, setPopularMoviesPage] = useState([]);
@@ -55,6 +56,7 @@ const PopularMoviesPage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
+      <ArrowComponent />
     </div>
   );
 };

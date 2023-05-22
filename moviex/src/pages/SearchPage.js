@@ -1,23 +1,17 @@
-import { useEffect, useState, useRef } from "react";
-import {
-  Link,
-  useNavigate,
-  useSearchParams,
-  useParams,
-} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { searchMedia } from "../services/series.service";
 import { AiOutlineStar } from "react-icons/ai";
 import MovieComponent from "../components/MovieComponent";
+import ArrowComponent from "../components/ArrowComponent";
 
 const SearchPage = () => {
   const params = useParams();
-  const [queryParams, setQueryParams] = useSearchParams();
   const [results, setResults] = useState([]);
 
   useEffect(() => {
     searchMedia(params.id)
       .then((response) => {
-        console.log(response.data);
         setResults(response.data.results);
       })
       .catch((error) => {
@@ -70,12 +64,12 @@ const SearchPage = () => {
                 key={index}
               />
             );
-          } else if (!result) {
-            console.log("no");
+          } else {
             return <h2>No results</h2>;
           }
         })}
       </div>
+      <ArrowComponent />
     </div>
   );
 };

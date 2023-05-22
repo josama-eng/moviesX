@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MovieComponent from "../components/MovieComponent";
-import styled from "styled-components";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { filterGenres } from "../services/movie.service";
+import ArrowComponent from "../components/ArrowComponent";
 
 const GenresPage = () => {
   const { id } = useParams();
@@ -57,6 +57,7 @@ const GenresPage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
+      <ArrowComponent />
     </div>
   );
 };

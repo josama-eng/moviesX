@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieComponent from "../components/MovieComponent";
 import { nowPlaying } from "../services/movie.service";
+import ArrowComponent from "../components/ArrowComponent";
 
 const LatestMoviesPage = () => {
   const [nowPlayingMovies, setNowPlaying] = useState([]);
@@ -30,6 +31,7 @@ const LatestMoviesPage = () => {
           />
         ))}
       </div>
+      <ArrowComponent />
     </div>
   );
 };

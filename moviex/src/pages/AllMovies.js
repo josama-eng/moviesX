@@ -3,6 +3,7 @@ import axios from "axios";
 import MovieComponent from "../components/MovieComponent";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import ArrowComponent from "../components/ArrowComponent";
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -56,6 +57,7 @@ const HomePage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
+      <ArrowComponent />
     </div>
   );
 };

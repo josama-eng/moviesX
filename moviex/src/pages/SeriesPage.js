@@ -4,6 +4,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
+import ArrowComponent from "../components/ArrowComponent";
 
 const SeriesPage = () => {
   const [series, setSeries] = useState([]);
@@ -71,6 +72,7 @@ const SeriesPage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
+      <ArrowComponent />
     </div>
   );
 };

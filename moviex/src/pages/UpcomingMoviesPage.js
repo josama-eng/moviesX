@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieComponent from "../components/MovieComponent";
 import { upcomingMovie } from "../services/movie.service";
+import ArrowComponent from "../components/ArrowComponent";
 
 const UpcomingMoviesPage = () => {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
@@ -30,6 +31,7 @@ const UpcomingMoviesPage = () => {
           />
         ))}
       </div>
+      <ArrowComponent />
     </div>
   );
 };

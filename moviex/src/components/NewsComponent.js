@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { getNews } from "../services/movie.service";
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 const NewsComponent = () => {
   const [news, setNews] = useState([]);

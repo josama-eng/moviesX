@@ -3,6 +3,7 @@ import MovieComponent from "../components/MovieComponent";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { topRated } from "../services/movie.service";
+import ArrowComponent from "../components/ArrowComponent";
 
 const TopRatedPage = () => {
   const [topRatedMoviesPage, setTopRatedMoviesPage] = useState([]);
@@ -55,6 +56,7 @@ const TopRatedPage = () => {
           <AiOutlineArrowRight className="arrow" />
         </button>
       </div>
+      <ArrowComponent />
     </div>
   );
 };
