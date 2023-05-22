@@ -1,6 +1,7 @@
 import axios from "axios";
 const apiKey = process.env.REACT_APP_API_KEY;
 const baseUrl = process.env.REACT_APP_API_URL;
+const newsApiKey = process.env.GMEWS_API_KEY;
 
 export const allGenres = () =>
   axios.get(`${baseUrl}genre/movie/list?api_key=${apiKey}`);
@@ -33,3 +34,8 @@ export const upcomingMovie = () =>
 
 export const nowPlaying = () =>
   axios.get(`${baseUrl}movie/now_playing?api_key=${apiKey}&language=en-US`);
+
+export const getNews = () =>
+  axios.get(
+    `https://gnews.io/api/v4/search?q=movie&apikey=03440c853912699331116b381045a6ed`
+  );

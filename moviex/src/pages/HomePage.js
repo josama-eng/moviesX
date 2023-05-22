@@ -1,6 +1,7 @@
 import PopularMoviesSliderComponent from "../components/PopularMoviesSliderComponent";
 import TopRatedSliderComponent from "../components/TopRatedSliderComponent";
 import InfoComponent from "../components/InfoComponent";
+import NewsComponent from "../components/NewsComponent";
 
 const HomePage = () => {
   return (
@@ -20,6 +21,7 @@ const HomePage = () => {
       <PopularMoviesSliderComponent />
       <TopRatedSliderComponent />
       <InfoComponent />
+      <NewsComponent />
     </div>
   );
 };

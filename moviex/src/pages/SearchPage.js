@@ -14,8 +14,6 @@ const SearchPage = () => {
   const [queryParams, setQueryParams] = useSearchParams();
   const [results, setResults] = useState([]);
 
-  console.log(params.id);
-
   useEffect(() => {
     searchMedia(params.id)
       .then((response) => {
@@ -72,7 +70,8 @@ const SearchPage = () => {
                 key={index}
               />
             );
-          } else {
+          } else if (!result) {
+            console.log("no");
             return <h2>No results</h2>;
           }
         })}

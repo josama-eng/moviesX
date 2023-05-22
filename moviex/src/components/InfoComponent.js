@@ -1,7 +1,15 @@
+import LottieAnimation from "./LottieAnimation";
+import { useRef, useEffect } from "react";
+
 const InfoComponent = () => {
+  const animationRef = useRef(null);
   return (
     <div className="infoWrapper">
-      <div className="infoBackground">
+      <div className="animation">
+        <LottieAnimation />
+      </div>
+
+      <div className="content">
         <h2>About us</h2>
         <p>
           Introducing our new application, "MovieX" a powerful tool that fetches

@@ -3,20 +3,16 @@
 .infoWrapper {
   padding: 30px;
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/hero3.jpg");
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  @include flex(flex, center, center, row, 10px, wrap);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 78%);
-  @media screen and (max-width: 500px) {
-    clip-path: none;
+  min-height: 100vh;
+  @include flex(flex, center, center, row, 30px, wrap);
+  .animation {
+    width: 30%;
+    @media screen and (max-width: 768px) {
+      width: 80%;
+    }
   }
-  .infoBackground {
-    width: 70%;
+  .content {
+    width: 60%;
     text-align: center;
     @media screen and (max-width: 768px) {
       width: 100%;
