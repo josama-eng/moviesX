@@ -28,6 +28,14 @@ const SideBarComponent = () => {
     setShowMenu(!showMenu);
   };
 
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
+  const handleLinkClick = () => {
+    closeMenu();
+  };
+
   return (
     <nav className={`navbar ${showMenu ? "expanded" : ""}`}>
       <div className="logo">
@@ -39,25 +47,25 @@ const SideBarComponent = () => {
       </div>
 
       <ul className={`navbar-items ${showMenu ? "show" : ""}`}>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/">Home</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/all-movies">All movies</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/upcoming">Upcoming</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/popular">Popular</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/now-playing">Now playing</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/top-rated">Top rated</Link>
         </li>
-        <li className="navbar-item">
+        <li className="navbar-item" onClick={closeMenu}>
           <Link to="/series">Series</Link>
         </li>
         <li className="navbar-item dropdown">
@@ -72,7 +80,9 @@ const SideBarComponent = () => {
                   className="dropdown-item"
                   onClick={toggleGenres}
                 >
-                  <Link to={`/genres/${genre.id}`}>{genre.name}</Link>
+                  <Link to={`/genres/${genre.id}`} onClick={closeMenu}>
+                    {genre.name}
+                  </Link>
                 </li>
               ))}
             </ul>

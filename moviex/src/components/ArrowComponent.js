@@ -5,7 +5,6 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Prikazujemo strelicu samo kada korisnik dođe do određene tačke na stranici
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
@@ -24,7 +23,7 @@ const ScrollToTop = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Dodajemo tranziciju
+      behavior: "smooth",
     });
   };
 

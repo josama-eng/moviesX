@@ -9,7 +9,6 @@ const NewsComponent = () => {
   useEffect(() => {
     getNews()
       .then((response) => {
-        console.log(response);
         setNews(response.data.articles);
       })
       .catch((error) => {
