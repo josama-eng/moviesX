@@ -1,5 +1,5 @@
 import LottieAnimation from "./LottieAnimation";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 const InfoComponent = () => {
   const animationRef = useRef(null);

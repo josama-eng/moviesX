@@ -1,5 +1,5 @@
 import { useLottie, useLottieInteractivity } from "lottie-react";
-import animationData from "../assets/animations/animation.json";
+import animationData from "../assets/animations/animation2.json";
 
 const style = {
   width: "100%",
@@ -7,9 +7,10 @@ const style = {
 
 const options = {
   animationData: animationData,
+  loop: 1,
 };
 
-const LottieAnimation = () => {
+const AboutLottieAnimation = () => {
   const lottieObj = useLottie(options, style);
   const Animation = useLottieInteractivity({
     lottieObj,
@@ -17,8 +18,8 @@ const LottieAnimation = () => {
     actions: [
       {
         visibility: [0.2, 0.9],
-        type: "seek",
-        frames: [0, 226],
+        type: "play",
+        frames: [0, 96],
       },
     ],
   });
@@ -26,4 +27,4 @@ const LottieAnimation = () => {
   return Animation;
 };
 
-export default LottieAnimation;
+export default AboutLottieAnimation;

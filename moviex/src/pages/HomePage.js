@@ -3,6 +3,7 @@ import TopRatedSliderComponent from "../components/TopRatedSliderComponent";
 import InfoComponent from "../components/InfoComponent";
 import NewsComponent from "../components/NewsComponent";
 import ArrowComponent from "../components/ArrowComponent";
+import About from "../components/About";
 
 const HomePage = () => {
   return (
@@ -20,6 +21,7 @@ const HomePage = () => {
         </div>
       </div>
       <PopularMoviesSliderComponent />
+      <About />
       <TopRatedSliderComponent />
       <InfoComponent />
       <NewsComponent />
